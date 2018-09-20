@@ -1,24 +1,17 @@
 import claseViajes.*
 import clasesClientes.*
+import clasesCobros.*
 
-class ChoferBasico {
-	method precioViaje(cliente,kms){
-		return cliente.precioPactadoPorKm()*kms
-	}
-}
-
-class ChoferConMinimo {
-	method precioViaje(cliente,kms) {
-		return 50.max(cliente.precioPactadoPorKm()*kms)
-	}
-}
-
-class ChoferDeReemplazo {
-	var _chofer
+class Chofer {
+	var _cobrar
 	const viajes = []
-	method reemplazaA(chofer) { _chofer=chofer}
+	
+	method cobrasAsi(cobro) {
+		_cobrar = cobro 
+	} 
+	
 	method precioViaje(cliente,kms) { 
-		return _chofer.precioViaje(cliente,kms)
+		return _cobrar.precioViaje(cliente,kms)
 	}
 	
 	method hacerViaje(cliente,kms) {
@@ -27,6 +20,5 @@ class ChoferDeReemplazo {
 	}
 	method mostrarViajes() { return viajes.asList() }
 	method mostrarUltimo() { return viajes.last() } // method para test
+	
 }
-
-
