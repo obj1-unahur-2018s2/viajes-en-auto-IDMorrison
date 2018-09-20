@@ -1,0 +1,29 @@
+import clasesClientes.*
+import clasesChoferes.*
+
+
+describe " clasesChoferes " {
+	const pepeClasico = new ChoferBasico()
+	const juanConMinimo = new ChoferConMinimo()
+	const rominaCliente = new ClienteBasico() 
+	const miaReemplazante = new ChoferDeReemplazo()
+	
+	fixture {
+		rominaCliente.setPrecio(10)
+	}
+	
+	test " ChoferBasico "{
+		assert.equals(20,pepeClasico.precioViaje(rominaCliente,2))
+	}
+	
+	test " ChoferConMinimo " {
+		assert.equals(50,juanConMinimo.precioViaje(rominaCliente,2))
+	}
+	
+	test " ChoferDeReemplazo " {
+		miaReemplazante.reemplazaA(juanConMinimo)
+		assert.equals(100,miaReemplazante.precioViaje(rominaCliente,10))
+	}
+	
+	
+}

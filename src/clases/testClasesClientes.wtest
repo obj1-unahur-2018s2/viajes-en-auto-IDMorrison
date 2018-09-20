@@ -1,0 +1,23 @@
+import clasesChoferes.*
+import clasesClientes.*
+
+
+describe " clasesClientes " {
+	const romina = new ClienteBasico()
+	const rosaneldaCadete = new ClienteCadete()
+	const juanChoferBasico = new ChoferBasico()
+	
+	fixture {
+		romina.setPrecio(21)
+	}
+	
+	test " clase ClienteBasico " {
+		assert.equals(42,juanChoferBasico.precioViaje(romina,2))
+	}
+	
+	test " clase ClienteCadete " {
+		rosaneldaCadete.setCliente(romina)
+		assert.equals(36,juanChoferBasico.precioViaje(rosaneldaCadete,2))
+	}
+	
+}

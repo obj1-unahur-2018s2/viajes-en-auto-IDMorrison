@@ -1,4 +1,4 @@
-import clientes.*
+import clasesClientes.*
 
 object roxana {
 	method precioViaje(cliente, kms) { 
