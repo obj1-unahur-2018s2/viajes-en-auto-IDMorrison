@@ -1,0 +1,25 @@
+
+//>>> pepeReemplazo
+//un/a  ChoferDeReemplazo[_chofer=un/a  ChoferBasico[], viajes=[un/a  Viaje[_cliente=null, _costo=null, _kms=null], un/a  Viaje[_cliente=un/a  ClienteBasico[_precio=10], _costo=20, _kms=2]]]
+
+import clasesChoferes.*
+import claseViajes.*
+import clasesClientes.*
+
+describe " CLASES " { 
+	const juanBasico = new ChoferBasico()
+	const pepeReemplazo = new ChoferDeReemplazo()
+	const romina = new ClienteBasico()
+	
+	fixture {
+		romina.setPrecio(10)
+		pepeReemplazo.reemplazaA(juanBasico)
+		
+	}
+	
+	test " viaje con romina " {
+		pepeReemplazo.hacerViaje(romina,2)
+		assert.equals(2,(pepeReemplazo.mostrarLista().mostrarKms()))
+	}
+
+}
